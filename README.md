@@ -12,8 +12,9 @@ $ SNS_DATA_GENERATOR_BASEURL=http://my-sns-app-url.example.com java -jar TestDat
 
 - SNS_DATA_GENERATOR_BASEURL : SNS 애플리케이션의 주소를 환경변수 형태로 지정합니다. 지정하지 않을 경우 localhost에 데이터를 생성합니다.
   - SNS_DATA_GENERATOR_USER_SERVER : User Server의 주소를 개별 지정합니다.
-  - SNS_DATA_GENERATOR_FEED_SERVER : User Server의 주소를 개별 지정합니다.
-  - SNS_DATA_GENERATOR_IMAGE_SERVER : User Server의 주소를 개별 지정합니다.
+  - SNS_DATA_GENERATOR_FEED_SERVER : Feed Server의 주소를 개별 지정합니다.
+  - SNS_DATA_GENERATOR_IMAGE_SERVER : Image Server의 주소를 개별 지정합니다.
+- SNS_DATA_GENERATOR_TELEPRESENCE_ENABLED : true로 지정하면 기본 주소를 telepresence를 이용한 주소로 사용합니다.
 - java -jar TestDataGen.jar 테스트 데이터 생성기를 실행합니다. Java 19버전 이상의 런타임이 필요합니다.
 - 생성할 데이터 수 : 지정한 숫자만큼의 데이터를 생성합니다. 생략할 경우 image 디렉토리에 있는 이미지 수 만큼 데이터를 생성합니다.
 
