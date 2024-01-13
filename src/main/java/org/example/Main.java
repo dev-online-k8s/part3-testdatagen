@@ -27,10 +27,12 @@ public class Main {
         String userServer = System.getenv("SNS_DATA_GENERATOR_USER_SERVER");
         String feedServer = System.getenv("SNS_DATA_GENERATOR_FEED_SERVER");
         String imageServer = System.getenv("SNS_DATA_GENERATOR_IMAGE_SERVER");
-        if (baseurl == null) {
-            System.out.println("No baseurl is defined in the environment variable. Using the local environment.");
-        } else {
-            System.out.println("Data generate to " + baseurl);
+        String telepresenceEnabled = System.getenv("SNS_DATA_GENERATOR_TELEPRESENCE_ENABLED");
+        if (telepresenceEnabled.equalsIgnoreCase("true")) {
+            USER_SERVER = "user-service.sns.svc.cluster.local:8080";
+            FEED_SERVER = "feed-service.sns.svc.cluster.local:8080";
+            IMAGE_SERVER = "image-service.sns.svc.cluster.local:8080";
+        } else if (baseurl != null){
             USER_SERVER = baseurl;
             FEED_SERVER = baseurl;
             IMAGE_SERVER = baseurl;
