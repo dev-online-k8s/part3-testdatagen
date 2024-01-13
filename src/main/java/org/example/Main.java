@@ -24,6 +24,9 @@ public class Main {
 
     public static void main(String[] args) throws URISyntaxException, IOException, InterruptedException {
         String baseurl = System.getenv("SNS_DATA_GENERATOR_BASEURL");
+        String userServer = System.getenv("SNS_DATA_GENERATOR_USER_SERVER");
+        String feedServer = System.getenv("SNS_DATA_GENERATOR_FEED_SERVER");
+        String imageServer = System.getenv("SNS_DATA_GENERATOR_IMAGE_SERVER");
         if (baseurl == null) {
             System.out.println("No baseurl is defined in the environment variable. Using the local environment.");
         } else {
@@ -32,6 +35,25 @@ public class Main {
             FEED_SERVER = baseurl;
             IMAGE_SERVER = baseurl;
         }
+
+        if (userServer != null) {
+            USER_SERVER = userServer;
+        }
+
+        if (feedServer != null) {
+            FEED_SERVER = feedServer;
+        }
+
+        if (imageServer != null) {
+            IMAGE_SERVER = imageServer;
+        }
+
+        System.out.println("===========================================================");
+        System.out.println("Server URL");
+        System.out.println("User Server : " + userServer);
+        System.out.println("Feed Server : " + feedServer);
+        System.out.println("Image Server : " + imageServer);
+        System.out.println("===========================================================");
 
         System.out.println("Image Count : " + imageLoader.countImage());
         String count = args.length > 0 ? args[0] : null;
