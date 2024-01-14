@@ -29,9 +29,9 @@ public class Main {
         String imageServer = System.getenv("SNS_DATA_GENERATOR_IMAGE_SERVER");
         String telepresenceEnabled = System.getenv("SNS_DATA_GENERATOR_TELEPRESENCE_ENABLED");
         if (telepresenceEnabled.equalsIgnoreCase("true")) {
-            USER_SERVER = "user-service.sns.svc.cluster.local:8080";
-            FEED_SERVER = "feed-service.sns.svc.cluster.local:8080";
-            IMAGE_SERVER = "image-service.sns.svc.cluster.local:8080";
+            USER_SERVER = "http://user-service.sns.svc.cluster.local:8080";
+            FEED_SERVER = "http://feed-service.sns.svc.cluster.local:8080";
+            IMAGE_SERVER = "http://image-service.sns.svc.cluster.local:8080";
         } else if (baseurl != null){
             USER_SERVER = baseurl;
             FEED_SERVER = baseurl;
@@ -52,9 +52,9 @@ public class Main {
 
         System.out.println("===========================================================");
         System.out.println("Server URL");
-        System.out.println("User Server : " + userServer);
-        System.out.println("Feed Server : " + feedServer);
-        System.out.println("Image Server : " + imageServer);
+        System.out.println("User Server : " + USER_SERVER);
+        System.out.println("Feed Server : " + FEED_SERVER);
+        System.out.println("Image Server : " + IMAGE_SERVER);
         System.out.println("===========================================================");
 
         System.out.println("Image Count : " + imageLoader.countImage());
